@@ -4,6 +4,7 @@ SELECT COUNT(`id`), `enrolment_date`
 FROM `students` 
 GROUP BY `enrolment_date`;
 
+
 -------------------------------------------------------------
 query n. 2 : Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
