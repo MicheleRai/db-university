@@ -15,18 +15,18 @@ GROUP BY `office_address`;
 -------------------------------------------------------------
 query n. 3 : Calcolare la media dei voti di ogni appello d'esame
 
-SELECT AVG(`vote`) AS 'media', `exam_id` 
+SELECT ROUND(AVG(`vote`)) AS 'media', `exam_id` 
 FROM `exam_student` 
 GROUP BY `exam_id`;
 
-??????????????????????????????? errore di sintassi da chiedere
-SELECT AVG(`vote`) AS 'media', `exam_id` 
-FROM `exam_student` 
-GROUP BY `exam_id`
+
+SELECT `courses`.`name`, `exams`.`date`, ROUND(AVG(`vote`)) AS 'media'
+FROM `exam_student`
 INNER JOIN `exams`
 ON `exam_student`.`exam_id` = `exams`.`id`
 INNER JOIN `courses`
-ON `exams`.`course_id` = `courses`.`id`
+ON `exams`.`course_id` = `courses`.`id` 
+GROUP BY `exam_id`;
 
 -------------------------------------------------------------
 query n. 4 :  Contare quanti corsi di laurea ci sono per ogni dipartimento
